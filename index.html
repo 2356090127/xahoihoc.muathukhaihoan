@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Tiêu đề hiển thị trên tab -->
+  <title>MÙA THU KHẢI HOÀN</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png?v=1">
+
+  <!-- SEO mô tả trang -->
+  <meta name="description" content="Công trình thanh niên: Diễn biến Cách mạng Tháng Tám năm 1945 - Mùa Thu Khải Hoàn.">
+  <meta name="keywords" content="Cách mạng Tháng Tám, Mùa thu Khải hoàn, lịch sử Việt Nam, đoàn thanh niên">
+  <meta name="author" content="Xã hội học">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #da251d;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* HEADER */
+    header {
+      height: 150px;
+      background: url("hd.jpg") no-repeat center center/cover;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+      padding: 20px;
+    }
+
+    header button {
+      padding: 10px 20px;
+      background: rgba(255, 255, 255, 0.8);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    header button:hover {
+      background: rgba(255, 255, 255, 1);
+    }
+
+    /* SLIDESHOW */
+    .container {
+      position: relative;
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .slide {
+      width: 100%;
+      height: 100%;
+      object-fit: contain; /* đảm bảo không bị crop */
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    .slide.active {
+      opacity: 1;
+      position: relative;
+    }
+
+    /* POPUP */
+    .popup {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    .popup-content {
+      background: url("pu.jpg") no-repeat center center/cover;
+      margin: 5% auto;
+      padding: 20px;
+      border-radius: 10px;
+      width: 60%;
+      max-height: 70vh;
+      overflow-y: auto;
+      text-align: justify;   /* căn đều */
+      line-height: 1.6;
+      color: #000;
+    }
+
+    .popup-content p {
+      text-indent: 2em; /* thụt đầu dòng */
+      margin: 0 0 1em;
+    }
+
+    /* FOOTER */
+    footer {
+      height: 120px;
+      background: url("ft.jpg") no-repeat center center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <button id="openPopup">Giới thiệu</button>
+  </header>
+
+  <!-- POPUP -->
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <p>Công trình thanh niên "Diễn biến Cách mạng Tháng Tám năm 1945" do Đoàn TNCS Hồ Chí Minh khoa Xã hội học, Trường ĐH KHXH&NV, ĐHQG-HCM thực hiện nhằm góp phần khơi dậy trong cán bộ, đoàn viên, thanh thiếu nhi niềm tự hào sâu sắc về truyền thống lịch sử hào hùng của dân tộc, của Đảng và của Đoàn. Qua đó, công trình góp phần nâng cao nhận thức về tầm vóc và ý nghĩa lịch sử trọng đại của cuộc Cách mạng Tháng Tám năm 1945 và sự ra đời của nước Việt Nam Dân chủ Cộng hòa.</p>
+      <p>Điểm nổi bật của công trình là việc ứng dụng công nghệ số trong tuyên truyền lịch sử, thông qua bản đồ trực tuyến tái hiện diễn biến các cuộc khởi nghĩa trong Cách mạng Tháng Tám năm 1945 trên khắp cả nước. Hình thức thể hiện này không chỉ đổi mới phương thức tiếp cận lịch sử, mà còn góp phần giáo dục truyền thống yêu nước, hun đúc ý chí tự lực, tự cường, khát vọng hòa bình, tinh thần đoàn kết dân tộc, và lòng biết ơn sâu sắc đối với các thế hệ cha anh đã hy sinh vì độc lập – tự do của Tổ quốc. Đồng thời, công trình cũng góp phần củng cố niềm tin vào vai trò lãnh đạo của Đảng và con đường đi lên chủ nghĩa xã hội.</p>
+      <p>Công trình được thực hiện nhằm chào mừng kỷ niệm 80 năm Cách mạng Tháng Tám thành công (19/8/1945 - 19/8/2025) và Ngày Quốc khánh (02/9/1945 - 02/9/2025). Bên cạnh đó, công trình còn hưởng ứng thành công Đại hội Đại biểu Đảng bộ Trường ĐH KHXH&NV lần thứ VIII, nhiệm kỳ 2025 – 2030, và hướng đến chào mừng Đại hội Đại biểu Đảng bộ ĐHQG-HCM lần thứ VII, nhiệm kỳ 2025 – 2030, cũng như Đại hội Đảng các cấp.</p>
+    </div>
+  </div>
+
+  <!-- MAIN SLIDES -->
+  <div class="container">
+    <img src="db1.jpg" class="slide active">
+    <img src="db2.jpg" class="slide">
+    <img src="db3.jpg" class="slide">
+    <img src="db4.jpg" class="slide">
+    <img src="db5.jpg" class="slide">
+    <img src="db6.jpg" class="slide">
+    <img src="db7.jpg" class="slide">
+    <img src="db8.jpg" class="slide">
+    <img src="db9.jpg" class="slide">
+    <img src="db10.jpg" class="slide">
+    <img src="db11.jpg" class="slide">
+    <img src="db12.jpg" class="slide">
+    <img src="db13.jpg" class="slide">
+    <img src="db14.jpg" class="slide">
+    <img src="db15.jpg" class="slide">
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+  </footer>
+
+  <script>
+    // Popup
+    const popup = document.getElementById("popup");
+    const openBtn = document.getElementById("openPopup");
+
+    openBtn.onclick = () => popup.style.display = "block";
+    popup.onclick = (e) => {
+      if (e.target === popup) popup.style.display = "none";
+    };
+
+    // Slideshow click để đổi ảnh
+    const slides = document.querySelectorAll('.slide');
+    let current = 0;
+    document.body.addEventListener('click', () => {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    });
+  </script>
+</body>
+</html>
